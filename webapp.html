@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>The Cleanup Challenge</title>
+</head>
+
 <body>
 
 <script type="text/javascript">
-function toggleMe(a){
-var e=document.getElementById(a);
-if(!e)return true;
-if(e.style.display=="none"){
-e.style.display="block"
-}
-else{
-e.style.display="none"
-}
-return true;
-}
+	function toggleMe(a){
+		var e=document.getElementById(a);
+		if(!e)return true;
+		if(e.style.display=="none"){
+			e.style.display="block"
+		}else{
+			e.style.display="none"
+		}
+		return true;
+	}
 </script>
 
 <h2>What Can JavaScript Do?</h2>
@@ -22,17 +27,34 @@ return true;
 
 <p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
 
-<input type="button" onclick="return toggleMe('TheHoleThing')" value="Toggle">
-<br/>
-
-<p id="TheHoleThing">
-<button onclick="document.getElementById('myImage').src='pic_bulbon.gif'">Turn on the light</button>
-
-<img id="myImage" src="pic_bulboff.gif" style="width:100px">
-
-<button onclick="document.getElementById('myImage').src='pic_bulboff.gif'">Turn off the light</button>
+<p>
+Who do you want to be: 
+<input type="button" onclick="return toggleMe('reporterSection')" value="Reporter">
+<input type="button" onclick="return toggleMe('cleanerSection')" value="Cleaner">
 </p>
 
+	<div class="select">
+	<label for="videoSource">Video source: </label><select id="videoSource"></select>
+</div>
+<video autoplay muted playsinline alt="Please enable the camera access."></video> 
+<p id="test"></p>
+<script src="js/main.js"></script>
+	
+<script>
+	
+//	document.write(getStream());
+	document.getElementById("test").innerHTML = "This is the end of the TEST section";
+</script>
+
+<p id="reporterSection">
+
+
+</p>
+
+
+<p id="cleanerSection">
+
+</p>
 
 </body>
 </html>
