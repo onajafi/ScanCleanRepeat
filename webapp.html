@@ -39,17 +39,11 @@ Who do you want to be:
   <div id="map" style="width: 500px; height: 400px;"></div>
 
   <script type="text/javascript">
-    var locations = [
-      ['Bondi Beach', -33.890542, 151.274856, 4],
-      ['Coogee Beach', -33.923036, 151.259052, 5],
-      ['Cronulla Beach', -34.028249, 151.157507, 3],
-      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-      ['Maroubra Beach', -33.950198, 151.259302, 1]
-    ];
+
 
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 10,
-      center: new google.maps.LatLng(24.886, -70.268),
+      zoom: 7,
+      center: new google.maps.LatLng(47.36, -70.268),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
@@ -57,21 +51,7 @@ Who do you want to be:
 
     var marker, i;
 
-    for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-    }
-
-// --------New Section of code---------
+// --------polygon---------
 	// Define the LatLng coordinates for the polygon's path.
         var triangleCoords = [
           {lat: 25.774, lng: -80.190},
@@ -91,15 +71,52 @@ Who do you want to be:
         });
         bermudaTriangle.setMap(map);
 
+		// Try HTML5 geolocation.
+		infoWindow = new google.maps.InfoWindow;
+
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+	      }, function() {
+              alert("Please enable the access to your location.");
+	      });
+          } else {
+            // Browser doesn't support Geolocation
+		    //handleLocationError(false, infoWindow, map.getCenter());
+            alert("Sorry, this app can not work with  version of browser");
+		  }
+		
+		var locOfMe = {lat: 47.36, lng: -70.268};
+		var marker = new google.maps.Marker({
+			position: locOfMe,
+			map: map,
+			title: 'Hello World!'
+  		},function() {
+            alert("Please enable the access to your location.");
+        });
+		
+		// To add the marker to the map, call setMap();
+		marker.setMap(map);
+
+
+
 	
-	drawingManager.setMap(map);
+//	drawingManager.setMap(map);
 
 	
 	</script>
 
 
 
-<!--
+
 <video autoplay muted playsinline alt="Please enable the camera access."></video> 
 <p id="test"></p>
 <script src="js/main.js"></script>
@@ -109,7 +126,7 @@ Who do you want to be:
 //	document.write(getStream());
 	document.getElementById("test").innerHTML = "This is the end of the TEST section";
 </script>
--->
+
 
 <p id="reporterSection">
 
