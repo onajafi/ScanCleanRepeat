@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Proxima+Nova');
+
+html, body, #fullheight {
+    min-height: 100% !important;
+    height: 100%;
+    margin: 0px;
+    overflow-y: hidden;
+}
+
+#container {
+	top: 0em;
+	left: 0em;
+	width: 100%;
+	height: 100%;
+}
+
+#startButton {
+	left: calc(50% - 2.5em);
+	top: calc(100% - 10em);
+	width: 7em;
+	height: 7em;
+	border-radius: 100em;
+	background-image: url('../images/startButton.png');
+	background-size: 100% 100%;
+	z-index: 3;
+	position: absolute;
+}
+
+#cameraButton {
+	left: calc(50% - 2.5em);
+	top: calc(100% - 100px);
+	width: 5em;
+	height: 5em;
+	border-radius: 100em;
+	background-image: url('../images/cameraButton.png');
+	background-size: 100% 100%;
+	z-index: 3;
+	position: absolute;
+}
+
+#backButton {
+	left: 2em;
+	top: 2em;
+	width: 3.5em;
+	height: 3.5em;
+	border-radius: 100em;
+	background-image: url('../images/backButton.png');
+	background-size: 100% 100%;
+	z-index: 3;
+	position: absolute;
+}
+
+#map {
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	position: absolute;
+}
+
+#frontPage {
+	 height: 100%;
+	 width: 100%;
+	 z-index: 10;
+	 position: absolute;
+	 background-color: white;
+}
+
+#cameraPage {
+	 display: none;
+	 height: 100%;
+	 width: 100%;
+	 z-index: 1;
+	 position: absolute;
+	 background-color: black;
+}
+
+#mapPage {
+	 height: 100%;
+	 width: 100%;
+	 z-index: 0;
+	 position: absolute;
+}
+
+#camera {
+	 height: 100%;
+	 width: 100%;
+	 z-index: 2;
+	 position: absolute;
+}
+
+#carbon {
+	text-align: center;
+	color: 	#228B22;
+	font-family: 'Nunito', sans-serif ,helvetica;
+	font-size: 3em;
+}
