@@ -22,6 +22,46 @@
     function takePicture(){
       alert("Picture taken");
     }
+
+    function repLaunch(){
+      toggleMe('frontPage');
+      //toggleMe('map');
+      // toggleMe('cameraPage');
+      toggleMe('cameraPage');
+      toggleMe('cameraPage');
+
+    //   var usrTXT = document.getElementById("usernameTXT");
+    //
+    //   const userAction = async () => {
+    //     console.log('i am doing something');
+    //     const response = await fetch('https://172.20.10.6:8000/api/v1/wastes/users/', {
+    //       method: 'POST',
+    //       body: { username: usrTXT.value }, // string or object
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //         'Access-Control-Allow-Origin': '*',
+    //         'Access-Control-Allow-Methods': 'POST'
+    //       }
+    //     });
+    //     console.log('i am doing something');
+    //     const myJson = await response.text(); //extract JSON from the http response
+    //     console.log(myJson)
+    //     // do something with myJson
+    //   };
+    //
+    //   userAction()
+    };
+
+    function cleanLaunch(){
+      toggleMe('frontPage');
+      toggleMe('cameraButton');
+
+    };
+
+    // function cleanLaunch(){
+    //
+    // };
+
   </script>
   <link rel="stylesheet" href="./styles/style.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
@@ -37,6 +77,14 @@
         <span style="font-size: 0.75em;">
           of CO<sub><font size="4em"><b>2</b></font></sub>
         </span>
+        <!-- ------Username------ -->
+        <div id="username_panel">
+          Username: <input type="text" id="usernameTXT"/>
+          <br>
+          <button id="reporterBTN" onClick="repLaunch();">reporter</button>
+          <button id="cleanerBTN" onClick="cleanLaunch();">cleaner</button>
+          <!--<div id="confirmerBTN" onClick="send();"></div>-->
+        </div>
       </div>
       <div id="startButton" onClick="toggleMe('frontPage');"></div>
     </div>

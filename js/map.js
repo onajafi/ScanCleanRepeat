@@ -47,6 +47,7 @@ var marker, i;
 		// Try HTML5 geolocation.
 		infoWindow = new google.maps.InfoWindow;
 
+    var locOfMe = {lat: 47.390, lng: 8.516};
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         var pos = {
@@ -54,10 +55,38 @@ var marker, i;
           lng: position.coords.longitude
         };
 
-        infoWindow.setPosition(pos);
-        infoWindow.setContent('Location found.');
+        infoWindow.setPosition(locOfMe);//If the location of the device is hard to detect we can use this hard-code
+        //infoWindow.setPosition(pos);
+        infoWindow.setContent('You are here');
         infoWindow.open(map);
-        map.setCenter(pos);
+        map.setCenter(locOfMe);//If the location of the device is hard to detect we can use this hard-code
+        //map.setCenter(pos);
+          var marker1 = new google.maps.Marker({
+              position: new google.maps.LatLng(47.3901, 8.5162),
+              icon: {url:'images/banana.jpg',scaledSize: new google.maps.Size(50, 50)},
+              map: map
+          });
+          var marker1 = new google.maps.Marker({
+              position: new google.maps.LatLng(47.3904, 8.5159),
+              icon: {url:'images/banana.jpg',scaledSize: new google.maps.Size(50, 50)},
+              map: map
+          });
+          var marker1 = new google.maps.Marker({
+              position: new google.maps.LatLng(47.3895, 8.5164),
+              icon: {url:'images/can.png',scaledSize: new google.maps.Size(50, 50)},
+              map: map
+          });
+          var marker2 = new google.maps.Marker({
+              position: new google.maps.LatLng(47.3898, 8.5161),
+              icon: {url:'images/can.png',scaledSize: new google.maps.Size(50, 50)},
+              map: map
+          });
+          var marker3 = new google.maps.Marker({
+              position: new google.maps.LatLng(47.3892, 8.517),
+              icon: {url:'images/water.png',scaledSize: new google.maps.Size(50, 50)},
+              map: map
+          });
+
       }, function() {
         alert("Please enable the access to your location.");
       });
@@ -67,7 +96,7 @@ var marker, i;
         alert("Sorry, this app can not work with  version of browser");
       }
 
-      var locOfMe = {lat: 47.36, lng: -70.268};
+
       var marker = new google.maps.Marker({
        position: locOfMe,
        map: map,
@@ -75,6 +104,9 @@ var marker, i;
      },function() {
       alert("Please enable the access to your location.");
     });
+
+    //----custom markers----
+
 
 		// To add the marker to the map, call setMap();
 		marker.setMap(map);
